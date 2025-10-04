@@ -128,6 +128,144 @@ Smaller λ → weaker penalty → more complex model (lower bias, higher varianc
 
 4. Intuition
 
+Notes – Supervised Machine Learning (Part 11): LASSO, Ridge, and Elastic Net Regularization
+
+1. Overview
+
+Introduces LASSO regression as another regularization technique for linear models.
+
+Builds upon Ridge regression — both control model complexity by adding a penalty to the cost function.
+
+The key difference lies in how the penalty is applied:
+
+Ridge uses the squared values of coefficients (L2 norm).
+
+LASSO uses the absolute values of coefficients (L1 norm).
+
+The combination of both forms the Elastic Net, a hybrid regularization method.
+
+2. Ridge (L2) vs. LASSO (L1)
+Aspect	Ridge Regression (L2)	LASSO Regression (L1)
+Penalty	Sum of squared coefficients	Sum of absolute coefficients
+Effect	Shrinks coefficients smoothly	Shrinks some to zero (feature elimination)
+Feature Selection	No – keeps all features	Yes – automatically removes some features
+Computation Speed	Faster, converges quickly	Slower, due to optimization complexity
+Sensitivity to Outliers	More affected (squares large values)	Less affected (absolute values)
+3. LASSO: Least Absolute Shrinkage and Selection Operator
+
+Adds a L1 penalty term to the cost function:
+
+<img width="1106" height="518" alt="image" src="https://github.com/user-attachments/assets/7d1b9627-7816-4cfd-b2fa-ab2cb1d6c0cb" />
+
+Larger λ → stronger penalty → smaller (or zero) coefficients.
+
+Behavior:
+
+Small λ → weak penalty → model similar to unregularized linear regression.
+
+Large λ → strong penalty → most coefficients forced toward zero (simpler model).
+
+This selective shrinking results in automatic feature selection, improving interpretability.
+
+4. Ridge Recap (L2 Penalty)
+
+Cost function:
+
+<img width="1099" height="459" alt="image" src="https://github.com/user-attachments/assets/029854e4-92f7-4ad6-b3ee-1d4f952a3fcc" />
+​
+
+
+Penalizes large coefficients more aggressively due to squaring.
+
+Shrinks all coefficients but rarely removes any completely.
+
+More computationally efficient and stable than LASSO.
+
+5. Understanding the Effect of λ (Regularization Strength)
+
+
+<img width="1168" height="592" alt="image" src="https://github.com/user-attachments/assets/193faf16-fa94-4034-a74b-37e609881e39" />
+
+λ = 0 → no regularization → model fits training data exactly (risk of overfitting).
+
+λ too high → over-regularization → model too simple, high bias.
+
+λ optimal → balances bias and variance → best generalization on the holdout set.
+
+In LASSO, increasing λ rapidly zeroes out weaker features, while Ridge simply scales them down.
+
+6. Multicollinearity Effects
+
+In datasets with correlated predictors:
+
+LASSO tends to pick one variable and drop the rest.
+
+Ridge keeps all but distributes weight among correlated variables.
+
+During tuning, coefficients may fluctuate temporarily as λ increases before stabilizing.
+
+7. Choosing Between Ridge and LASSO
+
+Use Ridge when:
+
+Many small but relevant predictors exist.
+
+You need stable coefficients and fast computation.
+
+Use LASSO when:
+
+You want feature selection or a sparse model.
+
+Interpretability is important.
+
+Trade-offs:
+
+Ridge → smoother shrinkage, better for continuous relationships.
+
+LASSO → simpler, interpretable models, but slower convergence.
+
+8. Elastic Net (Hybrid Approach)
+
+Combines L1 (LASSO) and L2 (Ridge) penalties:
+
+<img width="1332" height="427" alt="image" src="https://github.com/user-attachments/assets/9a4e360e-f606-4378-885e-3ff7558d2dc4" />
+
+Controlled by two parameters:
+
+λ (regularization strength): overall penalty.
+
+α (mix ratio): proportion of L1 vs. L2 contribution.
+
+α = 1 → pure LASSO
+
+α = 0 → pure Ridge
+
+Benefits:
+
+Balances Ridge’s stability with LASSO’s feature selection.
+
+Handles correlated features better than LASSO alone.
+
+Allows fine-tuning via cross-validation to find optimal λ and α.
+
+9. Summary
+
+Regularization controls overfitting by penalizing large coefficients.
+
+Ridge (L2) → smooth coefficient shrinkage.
+
+LASSO (L1) → selective coefficient elimination.
+
+Elastic Net → hybrid model combining benefits of both.
+
+Choosing the right regularization method depends on goals:
+
+Prediction accuracy: use cross-validation to tune λ and α.
+
+Interpretability: LASSO or Elastic Net preferred.
+
+Computation speed: Ridge preferred.
+
 Regularization discourages large coefficients → limits how much each feature can influence predictions.
 
 This reduces model variance and improves generalization to unseen data.
