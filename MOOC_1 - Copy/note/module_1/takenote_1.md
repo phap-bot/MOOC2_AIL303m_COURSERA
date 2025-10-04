@@ -6,8 +6,7 @@ In traditional statistics, we understand the underlying process → we can build
 
 In machine learning, the process is often unknown or too complex → the algorithm learns the relationship from data (function approximation).
 
-<img width="474" height="266" alt="image" src="https://github.com/user-attachments/assets/a4d526e2-556a-4356-a05b-89b778cb3b6e" />
-
+<img width="474" height="339" alt="image" src="https://github.com/user-attachments/assets/80b792ee-7674-4120-8df1-eb9d0a2b19bd" />
 
 
 Caption: Comparison between traditional modeling and machine learning — ML learns patterns directly from data.
@@ -27,8 +26,6 @@ Marketing → simulate human thinking (how people react).
 
 Supply chain → aim for rational thinking (optimize decisions).
 <img width="474" height="266" alt="image" src="https://github.com/user-attachments/assets/3d8a0843-612b-4779-8003-0e0edfe122de" />
-
-
 
 Caption: Russell & Norvig’s AI framework – where Machine Learning fits among “thinking” systems.
 
@@ -56,9 +53,6 @@ Balances complexity reduction and information preservation.
 Example: a map shows borders and water bodies but not every landmark — enough to understand spatial relations.
 
 <img width="474" height="275" alt="image" src="https://github.com/user-attachments/assets/d43eb2f8-1826-4414-8f49-bd07a18b7b17" />
-
-
-
 
 
 Caption: A model captures the key structure of reality while omitting unnecessary complexity.
